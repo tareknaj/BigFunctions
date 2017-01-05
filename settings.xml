@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <servers>
+       <server>
+               <id>artifactory</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>sap-rel</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>sap-snap</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+                <id>artifactory-oberon</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>libs-releases-local</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>libs-snapshots-local</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>ext-releases-local</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>
+       <server>
+               <id>remote-repos</id>
+               <username>${CI_DEPLOY_USERNAME}</username>
+               <password>${CI_DEPLOY_PASSWORD}</password>
+       </server>      
+</servers>
+</settings>
