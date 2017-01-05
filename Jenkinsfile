@@ -17,9 +17,7 @@ node('general_ec2') {
                 def rtMaven = Artifactory.newMavenBuild()
                 rtMaven.tool = 'maven339'
                 rtMaven.run pom: 'pom.xml',
-                        goals: '-U -s settings.xml ' +
-                                '-Dmaven.repository.base.url=http://10.0.0.184:881/artifactory/ ' +
-                                '-Dmaven.repository.repos.url=http://10.0.0.184:881/artifactory/repos/ ',
+                        goals: 'install -U -s settings.xml',
                         buildInfo: buildInfo
                 rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
 
