@@ -5,9 +5,6 @@ node('general_ec2') {
 
         String jdktool = tool name: 'jdk8', type: 'hudson.model.JDK'
         withEnv(["PATH+JDK=${jdktool}/bin", "JAVA_HOME=${jdktool}"]) {
-            stage('Checkout') {
-                filteredCheckout()
-            }
 
             stage('Build & Deploy') {
                 /* Call the Maven build without tests. */
@@ -15,29 +12,15 @@ node('general_ec2') {
                 def buildInfo = Artifactory.newBuildInfo()
                 buildInfo.env.capture = true
                 def rtMaven = Artifactory.newMavenBuild()
+                rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
                 rtMaven.tool = 'maven339'
                 rtMaven.run pom: 'pom.xml',
                         goals: 'install -U -s settings.xml',
                         buildInfo: buildInfo
-                rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
 
                 buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
                 server.publishBuildInfo buildInfo
             }
 
-            stage('Results') {
-                archive includes: 'target/*.jar,target/*.war'
-            }
         }
-
 }
-
-void filteredCheckout() {
-    // deleteDir()
-    checkout([
-            $class           : 'GitSCM',
-            userRemoteConfigs: [[
-                                        url: 'git@github.com:sapienstech/bdms-BigFunctions-exe-helper.git', credentialsId: '881cc29e-722a-462d-9953-0c6851bd45e5']]])
-}
-
-return
