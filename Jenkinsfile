@@ -18,7 +18,7 @@ node('SpotGeneral') {
                         goals: 'install -U -s settings.xml',
                         buildInfo: buildInfo
 
-                buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
+                buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: false
                 server.publishBuildInfo buildInfo
             }
 
