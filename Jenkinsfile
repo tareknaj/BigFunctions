@@ -1,6 +1,6 @@
 #!groovy
 
-node('general_ec2') {
+node('SpotGeneral') {
     checkout scm
 
         String jdktool = tool name: 'jdk8', type: 'hudson.model.JDK'
