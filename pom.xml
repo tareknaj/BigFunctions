@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sapiens.bdms</groupId>
+    <artifactId>bdms-big-functions-exe-helper</artifactId>
+    <version>6.2</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.repository.base.url>http://bdmsdev:8081/artifactory</maven.repository.base.url>
+        <maven.repository.repos.url>${maven.repository.base.url}/repo/</maven.repository.repos.url>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>sap-rel</id>
+            <name>sapiens releases</name>
+            <url>${maven.repository.base.url}/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>sap-snap</id>
+            <name>sapiens snapshots</name>
+            <url>${maven.repository.base.url}/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
