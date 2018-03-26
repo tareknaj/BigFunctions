@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.repository.base.url>http://bdmsdev:8081/artifactory</maven.repository.base.url>
+        <maven.repository.base.url>http://bdmsdev6:8087/artifactory</maven.repository.base.url>
         <maven.repository.repos.url>${maven.repository.base.url}/repo/</maven.repository.repos.url>
     </properties>
 
@@ -16,13 +16,13 @@
         <repository>
             <id>sap-rel</id>
             <name>sapiens releases</name>
-            <url>${maven.repository.base.url}/libs-releases-local</url>
+            <url>${maven.repository.base.url}/libs-release-local</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>false</uniqueVersion>
             <id>sap-snap</id>
             <name>sapiens snapshots</name>
-            <url>${maven.repository.base.url}/libs-snapshots-local</url>
+            <url>${maven.repository.base.url}/libs-snapshot-local</url>
         </snapshotRepository>
     </distributionManagement>
 
