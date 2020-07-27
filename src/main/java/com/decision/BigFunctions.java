@@ -228,8 +228,8 @@ public final class BigFunctions
     public static BigDecimal ln(BigDecimal x, int scale)
     {
         // Check that x > 0.
-        if (x.signum() <= 0) {
-            throw new IllegalArgumentException("x <= 0");
+        if (x.signum() < 0) {
+            throw new IllegalArgumentException("x < 0");
         }
 
         // The number of digits to the left of the decimal point.
